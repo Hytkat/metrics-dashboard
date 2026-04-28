@@ -1,0 +1,34 @@
+[project]
+name = "metrics-dashboard"
+version = "0.1.0"
+description = "ITGRS Project"
+authors = [{ name = "Debarchito Nath", email = "debarchiton@proton.me" }]
+keywords = ["metrics-dashboard"]
+requires-python = ">=3.14"
+dependencies = [
+    "dash>=4.1.0",
+    "plotly>=6.7.0",
+    "polars[pyarrow]>=1.40.1",
+]
+
+[project.scripts]
+metrics-dashboard = "metrics_dashboard.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.11.0,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = []
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.14"
+pythonPlatform = "Linux"
+executionEnvironments = [
+  { root = "src" },
+  { root = "test", extraPaths = [
+    "src",
+  ] },
+]
