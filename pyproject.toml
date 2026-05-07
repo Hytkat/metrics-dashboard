@@ -1,5 +1,5 @@
 [project]
-name = "metrics-dashboard"
+name = "dashboard"
 version = "0.1.0"
 description = "ITGRS Project"
 authors = [{ name = "Debarchito Nath", email = "debarchiton@proton.me" }]
@@ -7,12 +7,14 @@ requires-python = ">=3.14"
 dependencies = [
   "dash>=4.1.0",
   "kagglehub>=1.0.1",
+  "numpy>=2.4.4",
   "plotly>=6.7.0",
   "polars[pyarrow]>=1.40.1",
 ]
 
 [project.scripts]
-datasets = "datasets.download:main"
+datasets = "datasets.__main__:main"
+dashboard = "dashboard.__main__:main"
 
 [build-system]
 requires = ["uv_build>=0.11.0,<0.12.0"]

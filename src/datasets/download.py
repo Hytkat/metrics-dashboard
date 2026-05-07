@@ -152,7 +152,3 @@ def main() -> None:
         add(args.dataset, args.handle)
     elif args.command == "list":
         list_datasets()
-
-
-if __name__ == "__main__":
-    main()

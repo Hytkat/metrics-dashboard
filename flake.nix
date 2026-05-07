@@ -53,7 +53,12 @@
       ];
 
       perSystem =
-        { lib, pkgs, config, ... }:
+        {
+          lib,
+          pkgs,
+          config,
+          ...
+        }:
         let
           src = lib.cleanSource ./.;
 
@@ -69,14 +74,14 @@
               );
           editablePythonSet = pythonSet.overrideScope editableOverlay;
 
-          venv = pythonSet.mkVirtualEnv "metrics-dashboard-env" workspace.deps.default // {
-            meta.mainProgram = "metrics-dashboard";
+          venv = pythonSet.mkVirtualEnv "itgrs-mini-project-6th-env" workspace.deps.default // {
+            meta.mainProgram = "dashboard";
           };
-          devVenv = editablePythonSet.mkVirtualEnv "metrics-dashboard-dev-env" workspace.deps.all;
+          devVenv = editablePythonSet.mkVirtualEnv "itgrs-mini-project-6th-dev-env" workspace.deps.all;
         in
         {
           packages = {
-            metrics-dashboard = venv;
+            itgrs-mini-project-6th = venv;
             default = venv;
           };
 
@@ -91,10 +96,10 @@
           };
 
           checks = {
-            inherit (config.packages) metrics-dashboard;
+            inherit (config.packages) itgrs-mini-project-6th;
 
-            metrics-dashboard-pyright =
-              pkgs.runCommand "metrics-dashboard-pyright"
+            itgrs-mini-project-6th-pyright =
+              pkgs.runCommand "itgrs-mini-project-6th-pyright"
                 {
                   buildInputs = [
                     devVenv
@@ -115,11 +120,11 @@
           };
 
           overlayAttrs = {
-            inherit (config.packages) metrics-dashboard;
+            inherit (config.packages) itgrs-mini-project-6th;
           };
 
           devShells.default = pkgs.mkShell {
-            name = "metrics-dashboard-dev";
+            name = "itgrs-mini-project-6th-dev";
 
             packages = [
               devVenv

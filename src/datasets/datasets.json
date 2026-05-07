@@ -1,7 +1,7 @@
 {
   "datasets": {
-    "cyber-security-attacks": {
-      "handle": "teamincribo/cyber-security-attacks"
+    "cybersecurity-intrusion-detection-datatset": {
+      "handle": "dnkumars/cybersecurity-intrusion-detection-dataset"
     }
   }
 }
